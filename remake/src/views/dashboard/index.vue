@@ -75,7 +75,7 @@ export default {
   methods: {
     start() {
       start({ token: this.token }).then(response => {
-        this.region = response.data.result
+        this.region = response.data.country
         this.remaketimes = response.data.total
       })
     },
