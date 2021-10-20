@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: '极简人生重开模拟器',
 
   /**
    * @type {boolean} true | false
