@@ -2,31 +2,32 @@
   <div>
     <el-row>
       <el-divider style="margin-bottom:30px"></el-divider>
-      <el-button @click="start();dialog1 = true" type="primary" size="small"
+      <el-row>
+        <div class="title">极简人生重开模拟器</div>
+      </el-row>
+      <el-button @click="start();dialog1 = true" type="primary"
                  style="width:20%;margin-bottom:30px;margin-left: 40%;">开始重生
       </el-button>
     </el-row>
     <el-row>
-      <el-button @click="record();dialog2 = true" type="primary" size="small" style="width:20%;margin-bottom:30px;margin-left: 40%;">
+      <el-button @click="record();dialog2 = true" type="primary" style="width:20%;margin-bottom:30px;margin-left: 40%;">
         查看记录
       </el-button>
     </el-row>
     <el-dialog
       title="人生重开"
       :visible.sync="dialog1"
-      width="30%"
+      width="90%"
       :before-close="handleClose">
-      <span>{{ "国家：" + region }}</span>
-      <span>{{ " 重生次数：" + remaketimes }}</span>
+      <span class="text">{{ "国家：" + region + " 重生次数：" + remaketimes }}</span>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialog1 = false">取 消</el-button>
         <el-button type="primary" @click="dialog1 = false">确 定</el-button>
       </span>
     </el-dialog>
     <el-dialog
       title="人生重开"
       :visible.sync="dialog2"
-      width="30%"
+      width="90%"
       :before-close="handleClose">
       <el-table
         :data="list"
@@ -48,7 +49,6 @@
         </el-table-column>
       </el-table>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialog2 = false">取 消</el-button>
         <el-button type="primary" @click="dialog2 = false">确 定</el-button>
       </span>
     </el-dialog>
@@ -90,14 +90,28 @@ export default {
       })
     },
     handleClose(done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done()
-        })
-        .catch(_ => {
-        })
+      done()
+      // this.$confirm('确认关闭？')
+      //   .then(_ => {
+      //     done()
+      //   })
+      //   .catch(_ => {
+      //   })
     }
   }
 }
 </script>
+
+<style lang="scss">
+.text {
+  font-size: 16px;
+  text-align: center;
+}
+.title {
+  font-size: 26px;
+  margin: 0px auto 40px auto;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
 
